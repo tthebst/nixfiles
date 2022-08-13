@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, mail, ... }:
 
 {
   git = {
     enable = true;
     userName = "tim gretler";
-    userEmail = "gretler.tim@gmail.com";
+    userEmail = mail;
   };
   alacritty = {
     enable = true;

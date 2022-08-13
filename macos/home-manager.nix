@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  common-programs = import ../common/home-manager.nix { pkgs = pkgs; }; 
+  common-programs = import ../common/home-manager.nix { pkgs = pkgs; mail = "gretler.tim@gmail.com"; }; 
 in
 {
   imports = [

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  common-programs = import ../common/home-manager.nix { pkgs = pkgs; }; 
+  common-programs = import ../common/home-manager.nix { pkgs = pkgs; mail="tim.gretler@dfinity.org"; }; 
 in
 {
   # Home Manager needs a bit of information about you and the
