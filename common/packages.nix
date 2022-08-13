@@ -1,6 +1,9 @@
 { pkgs }:
 
 with pkgs; [
+  bash
+  fish
+  nerdfonts
   home-manager
   openssh
   python3

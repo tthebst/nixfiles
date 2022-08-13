@@ -28,7 +28,11 @@
   environment.systemPackages = with pkgs; (import ../common/packages.nix { pkgs = pkgs; });
 
 #  system.stateVersion = 4;
+
+  environment.shells = with pkgs; [ fish zsh ];
   
 
-  programs = { };
+  programs = {
+    fish.enable = true;
+  };
 }
