@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+home-manager switch -f ./linux/home.nix --impure
+
