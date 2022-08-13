@@ -121,5 +121,7 @@
     editor.true-color = true;
     editor.lsp.display-messages = true;
   };
+  
+  zellij.enable = true;  
  
 }
