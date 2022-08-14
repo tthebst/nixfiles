@@ -4,6 +4,7 @@ with pkgs; [
   bash
   cargo
   fish
+  gnumake
   nerdfonts
   home-manager
   openssh

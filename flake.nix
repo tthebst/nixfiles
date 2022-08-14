@@ -27,23 +27,23 @@
      };
 
     # My NixOS machine
-    # nixosConfigurations = {
-    #   felix = nixpkgs.lib.nixosSystem {
-    #     system = "x86_64-linux";
-    #     modules = [
-    #       ./nixos
-    #       ./hardware/felix.nix
-    #       home-manager.nixosModules.home-manager {
-    #         home-manager.useGlobalPkgs = true;
-    #         home-manager.useUserPackages = true;
-    #         home-manager.users.dustin = import ./nixos/home-manager.nix;
-    #       }
-    #     ];
-    #    specialArgs = {
-    #     inherit inputs;
-    #    };
+    nixosConfigurations = {
+      homelab = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+          modules = [
+            ./nixos
+            ./hardware/homelab.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.tim = import ./nixos/home-manager.nix;
+            }
+          ];
+         specialArgs = {
+          inherit inputs;
+         };
 
-    #   };
-    # };
+        };
+      };
   };
 }

@@ -1,25 +1,16 @@
 { pkgs, ... }:
 
 let
-  home = builtins.getEnv "HOME";
-  common-programs = import ../common/home-manager.nix { pkgs = pkgs; }; in
+  common-programs = import ../common/home-manager.nix { pkgs = pkgs; mail="gretler.tim@gmail.com"; }; in
 {
   home = {
     enableNixpkgsReleaseCheck = false;
     packages = pkgs.callPackage ./packages.nix {};
-    username = "dustin";
-    homeDirectory = "/home/dustin";
-    stateVersion = "21.05";
+    username = "tim";
+    homeDirectory = "/home/tim";
+    stateVersion = "22.05";
   };
 
   # TODO: Clean this up. Import these so we use Nix composability.
-  programs = common-programs // {
-    alacritty.settings.font = {
-      normal = {
-        family = "Hack";
-        style = "Regular";
-      };
-      size = 10;
-    };
-  };
+  programs = common-programs;
 }
