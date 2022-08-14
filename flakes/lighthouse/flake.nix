@@ -19,8 +19,9 @@
         };
 
         devShell = with pkgs; mkShell {
-          buildInputs = [ cargo rustc rustfmt pre-commit rustPackages.clippy ];
+          buildInputs = [ cargo clang libclang cmake rustc rustfmt pre-commit protobuf rustPackages.clippy ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
+          LIBCLANG_PATH = "${pkgs.llvmPackages_11.libclang.lib}/lib";
         };
       });
 }
