@@ -5,7 +5,19 @@
     enable = true;
     userName = "tim gretler";
     userEmail = mail;
+    delta.enable = true;
+    delta.options = { 
+      features = "woolly-mammoth";
+      whitespace-error-style = "22 reverse";
+      side-by-side = true;
+      pager = "never";
+      light = false;
+    };
+    extraConfig = {
+      include.path = "${builtins.fetchurl "https://raw.githubusercontent.com/dandavison/delta/738c5a141bf86d3e05aa348eb87df78c36a72337/themes.gitconfig"}";
+    };
   };
+  
   alacritty = {
     enable = true;
     settings = {
@@ -122,6 +134,5 @@
     editor.lsp.display-messages = true;
   };
   
-  zellij.enable = true;  
- 
+  zellij.enable = true;
 }
