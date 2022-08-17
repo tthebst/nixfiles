@@ -19,9 +19,10 @@
         };
 
         devShell = with pkgs; mkShell {
-          buildInputs = [ cargo clang libclang cmake rustc rustfmt pre-commit protobuf rustPackages.clippy ];
+          buildInputs = [ cargo clang libclang cmake rustc rustfmt pre-commit protobuf rustPackages.clippy pkg-config openssl ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
           LIBCLANG_PATH = "${pkgs.llvmPackages_11.libclang.lib}/lib";
+          PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";  
         };
       });
 }
