@@ -69,10 +69,18 @@
   services.tailscale.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
+  # services.miniupnpd = {
+    # enable = true;
+    # externalInterface = "enp42s0";
+    # internalIPs = [ "enp42s0" ];
+  # };
+  services.gnome.rygel.enable = true;
+  
+  fileSystems."/mnt/nfs" = {
+    device = "192.168.1.124:/volume1/blockchain";
+    fsType = "nfs";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
