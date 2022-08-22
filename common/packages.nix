@@ -4,7 +4,10 @@ with pkgs; [
   bash
   fish
   nerdfonts
+  glances
   home-manager
+  htop
+  sysstat
   openssh
   python3
   ripgrep

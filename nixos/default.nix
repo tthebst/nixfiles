@@ -81,6 +81,17 @@
     device = "192.168.1.124:/volume1/blockchain";
     fsType = "nfs";
   };
+  
+  # Enablei goerli geth
+  systemd.services.geth-goerli = {
+    enable = true;
+    description = "goerli-geth";
+    serviceConfig = {
+      ExecStart = "${pkgs.go-ethereum.geth}/bin/geth --goerli --datadir=/mnt/nfs/ethereum --http.api engine,net,eth --http --authrpc.addr=localhost --authrpc.port=8551 --authrpc.vhosts=localhost --authrpc.jwtsecret=/tmp/jwtsecret";
+    };
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
