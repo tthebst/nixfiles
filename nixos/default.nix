@@ -83,7 +83,6 @@
   };
   
   # Enablei goerli geth
-  
   services.geth."goerli" = {
     enable = true;
     network = "goerli";
@@ -101,7 +100,31 @@
     ];
     metrics.enable = true;
   };
-
+  # Mainnet
+  services.geth."mainnet" = {
+    enable = true;
+    extraArgs = [
+      "--authrpc.addr=localhost"
+      "--authrpc.port=8551"
+      "--authrpc.vhosts=localhost"
+      "--authrpc.jwtsecret=/tmp/jwtsecret"
+    ];
+    http.enable = true;
+    http.apis = [
+      "net"
+      "engine"
+      "eth"
+    ];
+    metrics.enable = true;
+  };
+  # Bitcoin node 
+  services.bitcoind."btc" = {
+    enable = true;
+  };
+  # Monero node 
+  services.monero = {
+    enable = true;
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
