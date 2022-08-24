@@ -2,6 +2,8 @@
 
 with pkgs; [
   bash
+  duf
+  du-dust
   fish
   nerdfonts
   glances
