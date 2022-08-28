@@ -7,6 +7,7 @@ with pkgs; [
   fish
   nerdfonts
   glances
+  jwt-cli
   home-manager
   htop
   sysstat

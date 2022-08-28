@@ -23,11 +23,6 @@
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
           LIBCLANG_PATH = "${pkgs.llvmPackages_11.libclang.lib}/lib";
           PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-            
-          # Use setsid to avoid killing geth with crtl c.
-          shellHook = ''
-            setsid geth --datadir=/mnt/nfs/ --authrpc.addr localhost --goerli --authrpc.port 8551 --authrpc.vhosts localhost --authrpc.jwtsecret /tmp/jwtsecret &> $HOME/scratch/geth.log &
-          ''; 
         };
       });
 }

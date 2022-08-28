@@ -70,11 +70,7 @@
 
   # Open ports in the firewall.
   networking.firewall.enable = false;
-  # services.miniupnpd = {
-    # enable = true;
-    # externalInterface = "enp42s0";
-    # internalIPs = [ "enp42s0" ];
-  # };
+  # Upnp
   services.gnome.rygel.enable = true;
   
   fileSystems."/mnt/nfs" = {
@@ -87,40 +83,53 @@
     enable = true;
     network = "goerli";
     extraArgs = [
-      "--authrpc.addr=localhost"
       "--authrpc.port=8551"
-      "--authrpc.vhosts=localhost"
-      "--authrpc.jwtsecret=/tmp/jwtsecret"
+      "--authrpc.jwtsecret=/etc/geth/jwttoken"
     ];
     http.enable = true;
     http.apis = [
       "net"
       "engine"
       "eth"
+      "admin"
     ];
     metrics.enable = true;
   };
-  # Mainnet
-  services.geth."mainnet" = {
-    enable = true;
-    extraArgs = [
-      "--authrpc.addr=localhost"
-      "--authrpc.port=8551"
-      "--authrpc.vhosts=localhost"
-      "--authrpc.jwtsecret=/tmp/jwtsecret"
-    ];
-    http.enable = true;
-    http.apis = [
-      "net"
-      "engine"
-      "eth"
-    ];
-    metrics.enable = true;
+  
+  environment.etc."geth/jwttoken" = {
+    # Used for development
+    mode = "0444";
+    text = "06e138d3abd00ba78a1b63cc7c936bf03b995624a169b0ead6bd80fa8919adab";
   };
-  # Bitcoin node 
-  services.bitcoind."btc" = {
-    enable = true;
-  };
+  
+  
+  
+  # Mainnet.
+  # services.geth."mainnet" = {
+  #   enable = true;
+  #   # default 30303
+  #   # port = 30304;
+  #   extraArgs = [
+  #     "--authrpc.addr=0.0.0.0"
+  #     "--authrpc.port=8552"
+  #     "--authrpc.vhosts=*"
+  #     "--authrpc.jwtsecret=/etc/geth/jwttoken"
+  #   ];
+  #   http.enable = true;
+  #   # default 8545
+  #   http.port = 8546;
+  #   http.apis = [
+  #     "net"
+  #     "engine"
+  #     "eth"
+  #     "admin"
+  #   ];
+  # };
+  # # Bitcoin node 
+  # services.bitcoind."btc" = {
+  #   enable = true;
+  # };
+
   # Monero node 
   services.monero = {
     enable = true;
