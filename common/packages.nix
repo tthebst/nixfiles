@@ -10,7 +10,6 @@ with pkgs; [
   jwt-cli
   home-manager
   htop
-  sysstat
   openssh
   python3
   ripgrep
