@@ -51,30 +51,30 @@
       };
       colors = {
         primary = {
-          background = "0x282828";
-          foreground = "0xebdbb2";
+          background = "0x292d3e";
+          foreground = "0xd0d0d0";
         };
 
         normal = {
-          black = "0x282828";
-          red = "0xcc241d";
-          green = "0x98971a";
-          yellow = "0xd79921";
-          blue = "0x458588";
-          magenta = "0xb16286";
-          cyan = "0x689d6a";
-          white = "0xa89984";
+          black = "0x292d3e";
+          red   = "0xf07178";
+          green = "0xc3e88d";
+          yellow= "0xffcb6b";
+          blue  = "0x82aaff";
+          magenta = "0xc792ea";
+          cyan  = "0x89ddff";
+          white = "0xd0d0d0";
         };
 
         bright = {
-          black = "0x928374";
-          red = "0xfb4934";
-          green = "0xb8bb26";
-          yellow = "0xfabd2f";
-          blue = "0x83a598";
-          magenta = "0xd3869b";
-          cyan = "0x8ec07c";
-          white = "0xebdbb2";
+          black =   "0x434758";
+          red =     "0xff8b92";
+          green =   "0xddffa7";
+          yellow =  "0xffe585";
+          blue =    "0x9cc4ff";
+          magenta = "0xe1acff";
+          cyan =    "0xa3f7ff";
+          white =   "0xffffff";
         };
       };
     };
@@ -124,9 +124,6 @@
   helix.enable = true;
   helix.languages = [{
     name = "rust";
-    language-server = {
-        timeout = 300;
-    };
   }];
   helix.settings = {
     theme = "gruvbox";
