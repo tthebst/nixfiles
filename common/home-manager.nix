@@ -51,7 +51,7 @@
       };
       colors = {
         primary = {
-          background = "0x292d3e";
+          background = "0x282a3a";
           foreground = "0xd0d0d0";
         };
 
@@ -126,7 +126,7 @@
     name = "rust";
   }];
   helix.settings = {
-    theme = "gruvbox";
+    theme = "monokai_pro_octagon";
     editor.true-color = true;
     editor.lsp.display-messages = true;
   };
