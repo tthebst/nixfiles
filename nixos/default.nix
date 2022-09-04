@@ -41,6 +41,7 @@
     isNormalUser = true;
     description = "Tim Gretler";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [];
   };
 
