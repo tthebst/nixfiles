@@ -7,6 +7,7 @@ with pkgs; [
   fish
   nerdfonts
   glances
+  neofetch
   jwt-cli
   home-manager
   htop

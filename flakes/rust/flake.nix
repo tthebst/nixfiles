@@ -30,6 +30,7 @@
             rustPackages.clippy 
             pkg-config 
             openssl
+            jdk
             nodePackages.ganache
             ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
