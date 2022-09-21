@@ -21,4 +21,5 @@ with pkgs; [
   vim
   wget
   zip
+  pprof
 ]
