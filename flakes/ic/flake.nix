@@ -19,7 +19,24 @@
         };
 
         devShell = with pkgs; mkShell {
-          buildInputs = [ bazelisk clang libclang cmake rustfmt pre-commit protobuf rustup rustPackages.clippy pkg-config openssl];
+          buildInputs = [ 
+            bazelisk
+            clang
+            libclang
+            libunwind
+            cmake
+            rustfmt
+            pre-commit
+            protobuf
+            rustup
+            rustPackages.clippy
+            pkg-config
+            openssl
+            sqlite
+            zlib
+            gcc
+            lld
+          ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
           LIBCLANG_PATH = "${pkgs.llvmPackages_11.libclang.lib}/lib";
           PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";  
