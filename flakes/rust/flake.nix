@@ -19,10 +19,24 @@
         };
 
         devShell = with pkgs; mkShell {
-          buildInputs = [ clang libclang cmake rustfmt pre-commit protobuf rustup rustPackages.clippy pkg-config openssl];
+          buildInputs = [ 
+            clang 
+            libclang 
+            cmake 
+            rustfmt 
+            pre-commit 
+            protobuf 
+            rustup 
+            rustPackages.clippy 
+            pkg-config 
+            openssl
+            jdk
+            nodePackages.ganache
+            ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
           LIBCLANG_PATH = "${pkgs.llvmPackages_11.libclang.lib}/lib";
-          PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";  
+          PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig"; 
+          CURL_CA_BUNDLE="/etc/ssl/certs/ca-bundle.crt";
         };
       });
 }
