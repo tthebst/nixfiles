@@ -37,6 +37,9 @@
           LIBCLANG_PATH = "${pkgs.llvmPackages_11.libclang.lib}/lib";
           PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig"; 
           CURL_CA_BUNDLE="/etc/ssl/certs/ca-bundle.crt";
+          shellHook = ''
+            export PATH=~/.cargo/bin:$PATH
+          '';
         };
       });
 }
