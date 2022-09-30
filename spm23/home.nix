@@ -20,6 +20,10 @@ in
   home.stateVersion = "22.05";
     
   nixpkgs.config.allowUnfree = true;    
+  nix.extraOptions = 
+    ''
+    experimental-features = nix-command flakes
+    '';
   home.enableNixpkgsReleaseCheck = false;
   home.packages = pkgs.callPackage ./packages.nix {};
   programs = common-programs;

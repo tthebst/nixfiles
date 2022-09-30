@@ -22,4 +22,5 @@ with pkgs; [
   wget
   zip
   inetutils
+  pprof
 ]
