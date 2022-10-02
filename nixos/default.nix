@@ -23,6 +23,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # Runnign into error because of this
+  # https://discourse.nixos.org/t/how-to-disable-networkmanager-wait-online-service-in-the-configuration-file/19963
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
@@ -73,11 +76,6 @@
   networking.firewall.enable = false;
   # Upnp
   services.gnome.rygel.enable = true;
-  
-  fileSystems."/mnt/nfs" = {
-    device = "192.168.1.124:/volume1/blockchain";
-    fsType = "nfs";
-  };
   
   # Enablei goerli geth
   services.geth."goerli" = {
