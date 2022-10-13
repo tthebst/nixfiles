@@ -2,10 +2,11 @@
   inputs = {
     naersk.url = "github:nix-community/naersk/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    language-servers.url = git+https://git.sr.ht/~bwolf/language-servers.nix;
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, utils, naersk }:
+  outputs = { self, nixpkgs, language-servers, utils, naersk }:
     utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -31,7 +32,15 @@
             pkg-config 
             openssl
             jdk
+            nodejs
             nodePackages.ganache
+            nodePackages.typescript-language-server
+            nodePackages.bash-language-server
+            nodePackages.typescript
+            nodePackages.svelte-language-server
+            nodePackages.rollup
+            # vscode-{css,eslint,html,json}-language-server 
+            language-servers.packages.${system}.vscode-langservers-extracted
             ];
           RUST_SRC_PATH = rustPlatform.rustLibSrc;
           LIBCLANG_PATH = "${pkgs.llvmPackages_11.libclang.lib}/lib";
