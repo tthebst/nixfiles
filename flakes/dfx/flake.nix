@@ -26,15 +26,7 @@
 
         installPhase = ''
           install -m755 -D dfx $out/bin/dfx
-          runHook postInstall
         '';
-        postIntstall = ''
-          $out/bin/dfx cache install 
-          dfxcache = $out/bin/dfx cache show;
-          autoPatchelf "$dfxcache/*"
-        '';
-        
-
       };
   };
 }

@@ -102,6 +102,12 @@
   };
   
   
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  
   
   # Mainnet.
   # services.geth."mainnet" = {
