@@ -2,6 +2,7 @@
 
 with pkgs; [
   bash
+  ledger
   duf
   du-dust
   fish
@@ -23,4 +24,9 @@ with pkgs; [
   zip
   inetutils
   pprof
+  nodePackages.typescript-language-server
+  nodePackages.bash-language-server
+  nodePackages.typescript
+  nodePackages.svelte-language-server
+  nodePackages.rollup
 ]
