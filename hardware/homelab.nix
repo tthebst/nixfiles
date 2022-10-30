@@ -18,18 +18,6 @@
       fsType = "ext4";
     };
 
-  fileSystems."/ipfs1" =
-    { device = "/dev/disk/by-uuid/2505e8d1-7223-281d-82af-d45aa6d96f75";
-      fsType = "ext4";
-      autoFormat = true;
-      autoResize = true;
-    };
-  fileSystems."/ipfs2" =
-    { device = "/dev/disk/by-uuid/2505e8d1-7223-281d-82af-d45aa6d96f75";
-      fsType = "ext4";
-      autoFormat = true;
-      autoResize = true;
-    };
 
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/019A-95D4";
