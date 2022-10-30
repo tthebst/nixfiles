@@ -17,12 +17,27 @@
     { device = "/dev/disk/by-uuid/a122d1d2-f5a4-4ee8-ab5c-6c3f575af691";
       fsType = "ext4";
     };
+    
+  fileSystems."/ipfs1" =
+    { device = "/dev/disk/by-uuid/550f388f-1f97-4bac-90b1-322403cedc5a";
+      fsType = "ext4";
+      autoFormat = true;
+      autoResize = true;
+    };
+    
+  fileSystems."/ipfs2" =
+    { device = "/dev/disk/by-uuid/05932c0f-3f06-4c67-937b-373f1f5ca1ef";
+      fsType = "ext4";
+      autoFormat = true;
+      autoResize = true;
+    };
 
 
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/019A-95D4";
       fsType = "vfat";
     };
+    
 
   swapDevices = [ ];
 

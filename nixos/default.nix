@@ -26,6 +26,9 @@
   # Runnign into error because of this
   # https://discourse.nixos.org/t/how-to-disable-networkmanager-wait-online-service-in-the-configuration-file/19963
   systemd.services.NetworkManager-wait-online.enable = false;
+  
+  # Since we only use the machine via ssh we don't want to enter mergency mode.
+  systemd.enableEmergencyMode = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
