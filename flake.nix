@@ -47,5 +47,24 @@
 
         };
       };
+    # My NixOS machine 2
+    nixosConfigurations = {
+      homelab2 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+          modules = [
+            ./nixos2
+            ./hardware/homelab2.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.tim = import ./nixos2/home-manager.nix;
+            }
+          ];
+         specialArgs = {
+          inherit inputs;
+         };
+
+        };
+      };
   };
 }
