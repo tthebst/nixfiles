@@ -4,7 +4,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     language-servers.url = git+https://git.sr.ht/~bwolf/language-servers.nix;
     utils.url = "github:numtide/flake-utils";
-    dfxPkg.url = "path:../dfx";
   };
 
   outputs = { self, nixpkgs, dfxPkg, language-servers, utils, naersk }:
