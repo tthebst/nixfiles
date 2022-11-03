@@ -18,21 +18,20 @@
       fsType = "ext4";
     };
     
-  fileSystems."/ipfs1" =
-    { device = "/dev/disk/by-uuid/550f388f-1f97-4bac-90b1-322403cedc5a";
-      fsType = "ext4";
-      autoFormat = true;
-      autoResize = true;
-    };
+  # Create Raid0 with two HDD
+  # mdadm --create --verbose /dev/md0 --level=linear --raid-devices=2 /dev/sdb /dev/sda
+  # Creafe filesystem on md0 `sudo mkfs.ext4 /dev/md0`
+  # sudo mount /dev/md0 /mnt/
+  # Get label of new disk `sudo lsblk -o name,mountpoint,label,size,uuid`
+
     
-  fileSystems."/ipfs2" =
-    { device = "/dev/disk/by-uuid/05932c0f-3f06-4c67-937b-373f1f5ca1ef";
-      fsType = "ext4";
-      autoFormat = true;
-      autoResize = true;
-    };
-
-
+  # fileSystems."/ipfs" =
+  #   { device = "/dev/disk/by-uuid/0d347b22-a4bb-5347-e634-0ba7e092e475";
+  #     fsType = "ext4";
+  #     autoFormat = true;
+  #     autoResize = true;
+  #   };
+    
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/019A-95D4";
       fsType = "vfat";

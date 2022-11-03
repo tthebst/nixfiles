@@ -80,6 +80,21 @@
   # Upnp
   services.gnome.rygel.enable = true;
   
+  
+  
+    virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  # Ethereum development
+
+  environment.etc."geth/jwttoken" = {
+    # Used for development
+    mode = "0444";
+    text = "06e138d3abd00ba78a1b63cc7c936bf03b995624a169b0ead6bd80fa8919adab";
+  };
+
   # Enablei goerli geth
   services.geth."goerli" = {
     enable = true;
@@ -97,51 +112,47 @@
     ];
     metrics.enable = true;
   };
-  
-  environment.etc."geth/jwttoken" = {
-    # Used for development
-    mode = "0444";
-    text = "06e138d3abd00ba78a1b63cc7c936bf03b995624a169b0ead6bd80fa8919adab";
-  };
-  
-  
-  virtualisation.podman = {
+
+  # Mainnet.
+  services.geth."mainnet" = {
     enable = true;
-    dockerCompat = true;
+    # default 30303
+    port = 30304;
+    extraArgs = [
+      "--authrpc.addr=0.0.0.0"
+      "--authrpc.port=8552"
+      "--authrpc.vhosts=*"
+      "--authrpc.jwtsecret=/etc/geth/jwttoken"
+    ];
+    http.enable = true;
+    # default 8545
+    http.port = 8546;
+    http.apis = [
+      "net"
+      "engine"
+      "eth"
+      "admin"
+    ];
   };
 
-  
-  
-  # Mainnet.
-  # services.geth."mainnet" = {
-  #   enable = true;
-  #   # default 30303
-  #   # port = 30304;
-  #   extraArgs = [
-  #     "--authrpc.addr=0.0.0.0"
-  #     "--authrpc.port=8552"
-  #     "--authrpc.vhosts=*"
-  #     "--authrpc.jwtsecret=/etc/geth/jwttoken"
-  #   ];
-  #   http.enable = true;
-  #   # default 8545
-  #   http.port = 8546;
-  #   http.apis = [
-  #     "net"
-  #     "engine"
-  #     "eth"
-  #     "admin"
-  #   ];
-  # };
-  # # Bitcoin node 
-  # services.bitcoind."btc" = {
-  #   enable = true;
-  # };
+  # Bitcoin node 
+  services.bitcoind."btc" = {
+    enable = true;
+  };
 
   # Monero node 
   services.monero = {
     enable = true;
   };
+
+  # Monero node 
+  services.ipfs = {
+    enable = true;
+    enableGC = true;
+    dataDir = "/mnt/ipfs";
+  };
+  
+  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
