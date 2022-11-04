@@ -6,12 +6,11 @@
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, dfxPkg, language-servers, utils, naersk }:
+  outputs = { self, nixpkgs, language-servers, utils, naersk }:
     utils.lib.eachSystem [ "x86_64-linux" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
         naersk-lib = pkgs.callPackage naersk { };
-        dfx = dfxPkg.defaultPackage.${system};
       in
       {
         defaultPackage = naersk-lib.buildPackage ./.;
@@ -23,7 +22,6 @@
         devShell = with pkgs; mkShell {
           buildInputs = [ 
             clang 
-            dfx
             libclang 
             cmake 
             rustfmt 

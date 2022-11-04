@@ -1,20 +1,5 @@
 {
   "nodes": {
-    "dfxPkg": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-xMWbv7AXMq9D5tGs6CrqXoI9VnrJgmwvC0BL7r4GIrE=",
-        "path": "../dfx",
-        "type": "path"
-      },
-      "original": {
-        "path": "../dfx",
-        "type": "path"
-      }
-    },
     "flake-utils": {
       "locked": {
         "lastModified": 1656928814,
@@ -33,7 +18,7 @@
     "language-servers": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1660485599,
@@ -51,7 +36,7 @@
     },
     "naersk": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1662220400,
@@ -70,21 +55,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1665603846,
-        "narHash": "sha256-EfT6w8aFIjEInXGNLmlHDCj7nhvE7syRSP9EGbAk4BY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3ea73da2aef1f65ec2e4fad32708dd8e315de9a2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1659107414,
         "narHash": "sha256-ASIVMNu/fTlgVvDJEJJ1xAysKGg6xX/wFcu4RTb2R3Y=",
         "owner": "nixos",
@@ -98,7 +68,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1664847737,
         "narHash": "sha256-Wxl0CtRH3Vo8+qEZ/PbCcx+9D8wEEi56tJPmROum2ss=",
@@ -112,7 +82,7 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1664847737,
         "narHash": "sha256-Wxl0CtRH3Vo8+qEZ/PbCcx+9D8wEEi56tJPmROum2ss=",
@@ -130,10 +100,9 @@
     },
     "root": {
       "inputs": {
-        "dfxPkg": "dfxPkg",
         "language-servers": "language-servers",
         "naersk": "naersk",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "utils": "utils"
       }
     },

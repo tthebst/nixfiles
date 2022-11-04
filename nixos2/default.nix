@@ -58,6 +58,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; (import ../common/packages.nix { pkgs = pkgs; });
+  
+  # vpn
+  services.openvpn.servers = {
+    officeVPN  = { config = '' config /home/tim/personal/vpn.ovpn ''; };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -71,6 +76,10 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  
+  
+  # Run unpatched libs
+  programs.nix-ld.enable = true;
   
   # enable the tailscale service
   services.tailscale.enable = true;
